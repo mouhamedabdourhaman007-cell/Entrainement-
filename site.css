@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background-size: 400% 400%;
+    animation: gradientMove 10s ease infinite;
+}
+@keyframes gradientMove{
+    0%{background-position: 0% 50%;}
+    50%{background-position: 100% 50%;}
+    100%{background-position: 0% 50%;}
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.2);
+    position: sticky;
+    top: 0;
+}
+.navbar .logo{
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.nav-links a{
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav-links a:hover{
+    opacity: 0.7;
+}
+.hero{
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+}
+.hero h1{
+    font-size: 2.5rem;
+}
+.hero p{
+    font-size: 1.2rem;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    padding: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+.card{
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: o.3s ease;
+}
+.glass{
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.card:hover{
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+}
+.footer{
+    text-align: center;
+    padding: 20px;
+    color: white;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.2);
+}
+@media(max-width: 480px){
+    .hero h1{
+        font-size: 1.8rem;
+    }
+    .nav-links{
+        display: none;
+    }
+}
+@media(max-width: 900px){
+    .hero h1{
+        font-size: 2rem;
+    }
+}
