@@ -1,21 +1,21 @@
-function calculer(){
-    const a = Number(document.getElementById("a").value);
-    const b = Number(document.getElementById("b").value);
-    const op = document.getElementById("op").value;
-    let r;
-    if(op === "+") r = a + b;
-    else if(op === "-") r = a - b;
-    else if(op === "*") r = a * b;
-    else if(op === "/"){
-        if(b === 0){
-            document.getElementById("res").textContent = "Division par 0 impossible";
-            return;
-        }
-        r = a / b;
-    } 
-    else {
-        document.getElementById("res").textContent = "Opérateur invalide";
-        return;
-    }
-    document.getElementById("res").textContent = "Résultat : " + r;
-}
+const operations = {
+  "+": (a, b) => a + b,
+  "-": (a, b) => a - b,
+  "*": (a, b) => a * b,
+  "%": (a, b) => a % b,
+  "/": (a, b) => b === 0 ? "Division par zéro" : a / b
+};
+const getValue = id => Number(document.getElementById(id).value);
+const getOp = () => document.getElementById("op").value;
+const show = msg => document.getElementById("res").textContent = msg;
+const calculer = () => {
+  const a = getValue("a");
+  const b = getValue("b");
+  const op = getOp();
+  const calc = operations[op];
+  show(
+    !calc || isNaN(a) || isNaN(b)
+      ? "Entrée invalide"
+      : "Résultat : " + calc(a, b)
+  );
+};
