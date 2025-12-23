@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
@@ -12,23 +15,25 @@ body{
 }
 .navbar{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 15px 30px;
+    gap: 10px;
+    padding: 10px 15px;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.2);
     position: sticky;
     top: 0;
 }
 .navbar .logo{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: white;
 }
 .nav-links{
     list-style: none;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 10px;
 }
 .nav-links a{
     text-decoration: none;
@@ -40,21 +45,20 @@ body{
 .hero{
     text-align: center;
     color: white;
-    padding: 80px 20px;
+    padding: 60px 15px;
 }
 .hero h1{
-    font-size: 2.5rem;
+    font-size: 1.8rem;
 }
 .hero p{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
-    padding: 30px;
-    max-width: 1000px;
-    margin: auto;
+    padding: 20px 15px;
+    width: 100%;
 }
 .card{
     padding: 25px;
@@ -73,21 +77,33 @@ body{
 }
 .footer{
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     color: white;
     backdrop-filter: blur(8px);
     background: rgba(0, 0, 0, 0.2);
 }
-@media(max-width: 480px){
-    .hero h1{
-        font-size: 1.8rem;
+@media (min-width: 768px){
+    .navbar{
+        padding: 15px 30px;
+        flex-direction: row;
+        justify-content: space-between;
     }
     .nav-links{
-        display: none;
+        flex-direction: row;
+        gap: 25px;
+    }
+    .hero h1{
+        font-size: 2.4rem;
     }
 }
-@media(max-width: 900px){
+@media (min-width: 1024px){
     .hero h1{
-        font-size: 2rem;
+        font-size: 3rem;
+    }
+}
+@media (min-width: 1400px){
+    .container{
+        max-width: 1300px;
+        margin: auto;
     }
 }

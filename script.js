@@ -1,31 +1,21 @@
-let n1 = 10;
-console.log(n1);
-let n2 = 5;
-console.log(n2);
-const op = "+"; "-"; "*"; "/"; "%";
-let resultat;
-if (op === "+"){
-    resultat = n1 + n2;
-}
-else if (op === "-"){
-    resultat = n1 - n2;
-}
-else if (op === "*"){
-    resultat = n1 * n2;
-}
-else if (op ==="/"){
-    if (n2 === 0){
-        resultat = "Erreur : division par zero impossible";
-    }else {
-        resultat = n1 / n2;
+function calculer(){
+    const a = Number(document.getElementById("a").value);
+    const b = Number(document.getElementById("b").value);
+    const op = document.getElementById("op").value;
+    let r;
+    if(op === "+") r = a + b;
+    else if(op === "-") r = a - b;
+    else if(op === "*") r = a * b;
+    else if(op === "/"){
+        if(b === 0){
+            document.getElementById("res").textContent = "Division par 0 impossible";
+            return;
+        }
+        r = a / b;
+    } 
+    else {
+        document.getElementById("res").textContent = "Opérateur invalide";
+        return;
     }
-}
-else if (op === "%"){
-    resultat = n1 % n2;
-}
-else {
-    resultat = "operateur non valide";
-}
-if(resultat !== undefined){
-    console.log("resultat:" + resultat);
+    document.getElementById("res").textContent = "Résultat : " + r;
 }
